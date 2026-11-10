@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Webglow Studios • Selected Works</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet">
+  <style>
+    @layer base {
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        overscroll-behavior: none;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f8f9ff;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #c3c6d7;
+      border-radius: 9999px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #737686;
+    }
+
+    /* Ambient Background Pattern & Elements */
+    .bg-grid-mesh {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 74, 198, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 74, 198, 0.05) 1px, transparent 1px);
+    }
+
+    .bg-dots-pattern {
+      background-size: 24px 24px;
+      background-image: radial-gradient(rgba(37, 99, 235, 0.13) 1.2px, transparent 1.2px);
+    }
+
+    @keyframes float-slow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 0.65; transform: scale(1); }
+      50% { opacity: 0.95; transform: scale(1.04); }
+    }
+
+    .animate-float {
+      animation: float-slow 9s ease-in-out infinite;
+    }
+
+    .animate-pulse-slow {
+      animation: pulse-slow 8s ease-in-out infinite;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#004ac6",
+            "primary-container": "#2563eb",
+            "primary-fixed": "#dbe1ff",
+            "primary-fixed-dim": "#b4c5ff",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#eeefff",
+            "secondary": "#006591",
+            "secondary-container": "#39b8fd",
+            "secondary-fixed": "#c9e6ff",
+            "secondary-fixed-dim": "#89ceff",
+            "on-secondary": "#ffffff",
+            "surface": "#f8f9ff",
+            "surface-dim": "#cbdbf5",
+            "surface-bright": "#f8f9ff",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#eff4ff",
+            "surface-container": "#e5eeff",
+            "surface-container-high": "#dce9ff",
+            "surface-container-highest": "#d3e4fe",
+            "on-surface": "#0b1c30",
+            "on-surface-variant": "#434655",
+            "outline": "#737686",
+            "outline-variant": "#c3c6d7",
+            "inverse-surface": "#121b2b",
+            "inverse-on-surface": "#eaf1ff"
+          },
+          fontFamily: {
+            "sans": ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-surface font-sans text-on-surface antialiased selection:bg-primary-container selection:text-white">
+  
+  <!-- Dynamic Ambient Background System (Lights, Architectural Grids, Mesh & Floating Orbs) -->
+  <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+    <!-- Full Architectural Grid with smooth edge vignette -->
+    <div class="absolute inset-0 bg-grid-mesh [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_95%)] opacity-80"></div>
+    
+    <!-- Subtle Floating Dot Matrix Accent Clusters -->
+    <div class="absolute top-[8%] left-[5%] w-[380px] h-[380px] bg-dots-pattern [mask-image:radial-gradient(circle_at_center,black_40%,transparent_80%)] opacity-70 animate-float"></div>
+    <div class="absolute top-[45%] right-[4%] w-[420px] h-[420px] bg-dots-pattern [mask-image:radial-gradient(circle_at_center,black_40%,transparent_80%)] opacity-60 animate-float" style="animation-delay: -4s;"></div>
+    <div class="absolute top-[78%] left-[8%] w-[400px] h-[400px] bg-dots-pattern [mask-image:radial-gradient(circle_at_center,black_40%,transparent_80%)] opacity-60 animate-float" style="animation-delay: -2s;"></div>
+
+    <!-- Luminous Ambient Color Glow Orbs -->
+    <!-- Top Hero Glow -->
+    <div class="absolute -top-[18%] left-1/2 -translate-x-1/2 w-[950px] h-[650px] bg-gradient-to-b from-primary-container/15 via-secondary-container/12 to-transparent rounded-full blur-[140px] animate-pulse-slow"></div>
+    <div class="absolute -top-[5%] left-[8%] w-[520px] h-[520px] bg-gradient-to-tr from-primary-fixed-dim/30 via-blue-300/15 to-transparent rounded-full blur-[130px]"></div>
+
+    <!-- Mid-Section Ambient Lighting -->
+    <div class="absolute top-[26%] -left-[10%] w-[680px] h-[680px] bg-gradient-to-r from-secondary-fixed/35 via-sky-200/25 to-transparent rounded-full blur-[150px]"></div>
+    <div class="absolute top-[50%] -right-[12%] w-[720px] h-[720px] bg-gradient-to-l from-primary-fixed/30 via-indigo-200/20 to-transparent rounded-full blur-[160px]"></div>
+    <div class="absolute top-[72%] -left-[8%] w-[640px] h-[640px] bg-gradient-to-tr from-cyan-200/25 via-blue-200/20 to-transparent rounded-full blur-[140px]"></div>
+
+    <!-- Bottom Archive Lighting -->
+    <div class="absolute -bottom-[8%] left-1/2 -translate-x-1/2 w-[850px] h-[550px] bg-gradient-to-t from-primary-fixed/35 via-secondary-fixed/25 to-transparent rounded-full blur-[150px]"></div>
+  </div>
+
+  <main class="w-full relative overflow-hidden">
+    
+    <!-- Minimalist Clean Header Hero -->
+    <section class="max-w-6xl mx-auto px-6 lg:px-12 pt-20 pb-16 text-center relative">
+      <!-- Concentric Orbital Tech Rings -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[760px] h-[760px] rounded-full border border-primary/[0.07] pointer-events-none -z-10"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[560px] h-[560px] rounded-full border border-dashed border-primary/[0.09] pointer-events-none -z-10 animate-float" style="animation-duration: 20s;"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] rounded-full border border-primary/[0.08] pointer-events-none -z-10"></div>
+
+      <!-- Corner Crosshair Markers -->
+      <div class="hidden sm:block absolute top-6 left-8 text-primary/25 font-mono text-xs select-none pointer-events-none">+</div>
+      <div class="hidden sm:block absolute top-6 right-8 text-primary/25 font-mono text-xs select-none pointer-events-none">+</div>
+      <div class="hidden sm:block absolute bottom-4 left-12 text-primary/25 font-mono text-xs select-none pointer-events-none">+</div>
+      <div class="hidden sm:block absolute bottom-4 right-12 text-primary/25 font-mono text-xs select-none pointer-events-none">+</div>
+
+      <div class="flex justify-center mb-6">
+        <img src="logo.png" alt="Webglow Logo" class="h-16 w-auto object-contain drop-shadow-sm">
+      </div>
+      <div
+        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high border border-primary-fixed mb-6 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-primary-container"></span>
+        <span class="text-xs font-semibold text-primary tracking-wide uppercase">Webglow Studios • Selected
+          Works</span>
+      </div>
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-on-surface leading-tight mb-5">
+        Crafted flagships &amp; <span
+          class="bg-gradient-to-r from-primary via-primary-container to-secondary-container bg-clip-text text-transparent">digital
+          experiences.</span>
+      </h1>
+      <p class="text-base md:text-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+        A curated collection of web applications, e-commerce architectures, and interactive digital products
+        engineered for modern brands.
+      </p>
+    </section>
+
+    <!-- Top Showcase List (In Exact Specified Order) -->
+    <div class="w-full divide-y divide-surface-container-high/70">
+
+      <!-- 01. Alain Store (Alainstore.in) -->
+      <section class="py-20 max-w-7xl mx-auto px-6 lg:px-12" id="alain-store">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-5 flex flex-col justify-center">
+            <div class="flex items-center gap-2.5 mb-3">
+              <span class="text-xs font-bold text-primary tracking-wider uppercase">01 / Consumer Tech &amp; Power</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed text-xs font-medium">Electronics Store</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-on-surface leading-snug mb-4">Alain Store</h2>
+            <p class="text-lg font-medium text-primary-container mb-3 leading-snug">
+              High-Speed GaN Chargers, Power Banks &amp; 3-in-1 Charging Stations.
+            </p>
+            <p class="text-on-surface-variant text-base leading-relaxed mb-6">
+              A cutting-edge tech e-commerce store engineered for modern mobile lifestyles. Alain Store specializes in ultra-compact GaN fast-charging bricks, high-capacity portable power banks, and versatile 3-in-1 wireless charging hubs built for seamless multi-device power.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Consumer Tech</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Shopify</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Tailwind CSS</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Payment Gateway</span>
+            </div>
+            <div class="flex justify-start">
+              <a href="https://alainstore.in" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary-container text-white text-xs font-semibold hover:bg-primary transition-colors">
+                <span class="material-symbols-outlined text-[15px]">open_in_new</span>Visit Live Site
+              </a>
+            </div>
+          </div>
+          <div class="lg:col-span-7 relative group">
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-primary-container/20 to-secondary-container/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-95 transition-opacity duration-300 -z-10"></div>
+            <div class="rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-xl overflow-hidden">
+              <div class="flex items-center justify-between px-4 py-3 bg-surface-container-low border-b border-surface-container-high">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ef4444] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#f59e0b] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#10b981] inline-block"></span>
+                </div>
+                <div class="px-3 py-1 rounded-md bg-surface-container-lowest text-xs text-on-surface-variant font-mono">
+                  alainstore.in
+                </div>
+                <span class="material-symbols-outlined text-outline text-[18px]">open_in_new</span>
+              </div>
+              <div class="aspect-[16/9] overflow-hidden bg-slate-100">
+                <img alt="Alain Store" class="w-full h-full object-fill" src="alain-store/1.png">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02. Lets Live Tours (letslivetours.com) -->
+      <section class="py-20 max-w-7xl mx-auto px-6 lg:px-12" id="letslivetours">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-7 order-2 lg:order-1 relative group">
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-secondary-container/20 to-primary-container/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-95 transition-opacity duration-300 -z-10"></div>
+            <div class="rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-xl overflow-hidden">
+              <div class="flex items-center justify-between px-4 py-3 bg-surface-container-low border-b border-surface-container-high">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ef4444] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#f59e0b] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#10b981] inline-block"></span>
+                </div>
+                <div class="px-3 py-1 rounded-md bg-surface-container-lowest text-xs text-on-surface-variant font-mono">
+                  letslivetours.com
+                </div>
+                <span class="material-symbols-outlined text-outline text-[18px]">open_in_new</span>
+              </div>
+              <div class="aspect-[16/9] overflow-hidden bg-slate-900 relative">
+                <img id="img-letslivetours" alt="Lets Live Tours" class="w-full h-full object-fill" src="letslivetours/1.png"
+                  onerror="this.style.display='none'; document.getElementById('placeholder-letslivetours').style.display='flex';">
+                <div id="placeholder-letslivetours" class="hidden w-full h-full bg-surface-container-low flex flex-col items-center justify-center p-8 text-center absolute inset-0">
+                  <div class="w-14 h-14 rounded-2xl bg-surface-container-high border border-surface-container-highest flex items-center justify-center text-primary mb-3">
+                    <span class="material-symbols-outlined text-3xl">add_photo_alternate</span>
+                  </div>
+                  <h4 class="font-bold text-on-surface text-base">Screenshot Preview Pending</h4>
+                  <p class="text-xs text-on-surface-variant max-w-xs mt-1">Place <code class="bg-surface-container-lowest px-1.5 py-0.5 rounded text-primary font-mono font-semibold">1.png</code> in the <code class="bg-surface-container-lowest px-1.5 py-0.5 rounded text-primary font-mono font-semibold">letslivetours</code> folder to showcase it here.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-5 flex flex-col justify-center order-1 lg:order-2">
+            <div class="flex items-center gap-2.5 mb-3">
+              <span class="text-xs font-bold text-secondary tracking-wider uppercase">02 / Travel &amp; Tourism</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-medium">Tours Agency</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-on-surface leading-snug mb-4">Lets Live Tours</h2>
+            <p class="text-lg font-medium text-secondary mb-3 leading-snug">
+              Curated Domestic &amp; International Vacation Packages.
+            </p>
+            <p class="text-on-surface-variant text-base leading-relaxed mb-6">
+              A comprehensive tours and travels agency website built for effortless trip planning. Features handcrafted holiday itineraries, experiential group tours, transparent excursion details, and streamlined traveler inquiry workflows.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">MERN Stack</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">React</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Node.js</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">MongoDB</span>
+            </div>
+            <div class="flex justify-start">
+              <a href="https://letslivetours.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-secondary text-white text-xs font-semibold hover:opacity-90 transition-colors">
+                <span class="material-symbols-outlined text-[15px]">open_in_new</span>Visit Live Site
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03. Tommy Casa (Tommycasa.in) -->
+      <section class="py-20 max-w-7xl mx-auto px-6 lg:px-12" id="tommycasa">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-5 flex flex-col justify-center">
+            <div class="flex items-center gap-2.5 mb-3">
+              <span class="text-xs font-bold text-primary tracking-wider uppercase">03 / Pet Care &amp; Furniture</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed text-xs font-medium">Dogs &amp; Cats</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-on-surface leading-snug mb-4">Tommy Casa</h2>
+            <p class="text-lg font-medium text-primary-container mb-3 leading-snug">
+              Designer Pet Houses, Cozy Beds &amp; Cat &amp; Dog Living Essentials.
+            </p>
+            <p class="text-on-surface-variant text-base leading-relaxed mb-6">
+              A premium pet lifestyle brand tailored for beloved dogs and cats. Tommy Casa offers artisanal wooden pet houses, ergonomic lounge beds, and pet accessories engineered for comfort, durability, and seamless home decor harmony.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Shopify</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Pet Furniture</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Tailwind CSS</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">E-Commerce</span>
+            </div>
+            <div class="flex justify-start">
+              <a href="https://tommycasa.in" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary-container text-white text-xs font-semibold hover:bg-primary transition-colors">
+                <span class="material-symbols-outlined text-[15px]">open_in_new</span>Visit Live Site
+              </a>
+            </div>
+          </div>
+          <div class="lg:col-span-7 relative group">
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-primary-container/20 to-secondary-container/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-95 transition-opacity duration-300 -z-10"></div>
+            <div class="rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-xl overflow-hidden">
+              <div class="flex items-center justify-between px-4 py-3 bg-surface-container-low border-b border-surface-container-high">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ef4444] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#f59e0b] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#10b981] inline-block"></span>
+                </div>
+                <div class="px-3 py-1 rounded-md bg-surface-container-lowest text-xs text-on-surface-variant font-mono">
+                  tommycasa.in
+                </div>
+                <span class="material-symbols-outlined text-outline text-[18px]">open_in_new</span>
+              </div>
+              <div class="aspect-[16/9] overflow-hidden bg-slate-900 relative">
+                <img id="img-tommycasa" alt="Tommy Casa" class="w-full h-full object-fill" src="tommycasa/1.png"
+                  onerror="this.style.display='none'; document.getElementById('placeholder-tommycasa').style.display='flex';">
+                <div id="placeholder-tommycasa" class="hidden w-full h-full bg-surface-container-low flex flex-col items-center justify-center p-8 text-center absolute inset-0">
+                  <div class="w-14 h-14 rounded-2xl bg-surface-container-high border border-surface-container-highest flex items-center justify-center text-primary mb-3">
+                    <span class="material-symbols-outlined text-3xl">add_photo_alternate</span>
+                  </div>
+                  <h4 class="font-bold text-on-surface text-base">Screenshot Preview Pending</h4>
+                  <p class="text-xs text-on-surface-variant max-w-xs mt-1">Place <code class="bg-surface-container-lowest px-1.5 py-0.5 rounded text-primary font-mono font-semibold">1.png</code> in the <code class="bg-surface-container-lowest px-1.5 py-0.5 rounded text-primary font-mono font-semibold">tommycasa</code> folder to showcase it here.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04. The Silent Club (thesilent.club) -->
+      <section class="py-20 max-w-7xl mx-auto px-6 lg:px-12" id="the-silent-club">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-7 order-2 lg:order-1 relative group">
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-secondary-container/20 to-primary-container/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-95 transition-opacity duration-300 -z-10"></div>
+            <div class="rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-xl overflow-hidden">
+              <div class="flex items-center justify-between px-4 py-3 bg-surface-container-low border-b border-surface-container-high">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ef4444] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#f59e0b] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#10b981] inline-block"></span>
+                </div>
+                <div class="px-3 py-1 rounded-md bg-surface-container-lowest text-xs text-on-surface-variant font-mono">
+                  thesilent.club
+                </div>
+                <span class="material-symbols-outlined text-outline text-[18px]">open_in_new</span>
+              </div>
+              <div class="aspect-[16/9] overflow-hidden bg-slate-900">
+                <img alt="The Silent Club" class="w-full h-full object-fill" src="the-silent-club/1.png">
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-5 flex flex-col justify-center order-1 lg:order-2">
+            <div class="flex items-center gap-2.5 mb-3">
+              <span class="text-xs font-bold text-secondary tracking-wider uppercase">04 / Hospitality &amp; Nature Retreat</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-medium">Resort &amp; Getaway</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-on-surface leading-snug mb-4">The Silent Club</h2>
+            <p class="text-lg font-medium text-secondary mb-3 leading-snug">
+              Scenic Nature Resort &amp; Peaceful Lakeside Retreat in Bhigwan, Pune.
+            </p>
+            <p class="text-on-surface-variant text-base leading-relaxed mb-6">
+              A tranquil resort sanctuary nestled by the backwaters of Bhigwan, Pune. The website highlights serene lakeside stays, birdwatching expeditions, farm-to-table dining, and seamless guest reservations for weekend getaways.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Hospitality CMS</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Next.js</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Direct Booking</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Tailwind CSS</span>
+            </div>
+            <div class="flex justify-start">
+              <a href="https://thesilent.club/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-secondary text-white text-xs font-semibold hover:opacity-90 transition-colors">
+                <span class="material-symbols-outlined text-[15px]">open_in_new</span>Visit Live Site
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05. Mandale Wellness (Mandalewellness.com) -->
+      <section class="py-20 max-w-7xl mx-auto px-6 lg:px-12" id="mandale-wellness">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-5 flex flex-col justify-center">
+            <div class="flex items-center gap-2.5 mb-3">
+              <span class="text-xs font-bold text-primary tracking-wider uppercase">05 / Beauty &amp; Skincare</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed text-xs font-medium">D2C Wellness</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-on-surface leading-snug mb-4">Mandale Wellness</h2>
+            <p class="text-lg font-medium text-primary-container mb-3 leading-snug">
+              Nourishing Skincare Formulations &amp; Clean Beauty Essentials.
+            </p>
+            <p class="text-on-surface-variant text-base leading-relaxed mb-6">
+              A clean beauty and skincare e-commerce brand offering toxin-free body care, botanical serums, and rejuvenating self-care rituals designed to enhance natural radiance and skin health.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">E-Commerce</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Shopify / Next.js</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Clean Beauty</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Tailwind CSS</span>
+            </div>
+            <div class="flex justify-start">
+              <a href="https://mandalewellness.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary-container text-white text-xs font-semibold hover:bg-primary transition-colors">
+                <span class="material-symbols-outlined text-[15px]">open_in_new</span>Visit Live Site
+              </a>
+            </div>
+          </div>
+          <div class="lg:col-span-7 relative group">
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-primary-container/20 to-secondary-container/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-95 transition-opacity duration-300 -z-10"></div>
+            <div class="rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-xl overflow-hidden">
+              <div class="flex items-center justify-between px-4 py-3 bg-surface-container-low border-b border-surface-container-high">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ef4444] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#f59e0b] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#10b981] inline-block"></span>
+                </div>
+                <div class="px-3 py-1 rounded-md bg-surface-container-lowest text-xs text-on-surface-variant font-mono">
+                  mandalewellness.com
+                </div>
+                <span class="material-symbols-outlined text-outline text-[18px]">open_in_new</span>
+              </div>
+              <div class="aspect-[16/9] overflow-hidden bg-slate-900 relative">
+                <img id="img-mandale" alt="Mandale Wellness" class="w-full h-full object-fill" src="mandale-wellness/1.png"
+                  onerror="this.style.display='none'; document.getElementById('placeholder-mandale').style.display='flex';">
+                <div id="placeholder-mandale" class="hidden w-full h-full bg-surface-container-low flex flex-col items-center justify-center p-8 text-center absolute inset-0">
+                  <div class="w-14 h-14 rounded-2xl bg-surface-container-high border border-surface-container-highest flex items-center justify-center text-primary mb-3">
+                    <span class="material-symbols-outlined text-3xl">add_photo_alternate</span>
+                  </div>
+                  <h4 class="font-bold text-on-surface text-base">Screenshot Preview Pending</h4>
+                  <p class="text-xs text-on-surface-variant max-w-xs mt-1">Place <code class="bg-surface-container-lowest px-1.5 py-0.5 rounded text-primary font-mono font-semibold">1.png</code> in the <code class="bg-surface-container-lowest px-1.5 py-0.5 rounded text-primary font-mono font-semibold">mandale-wellness</code> folder to showcase it here.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06. Oacpens (Oacpens.com) -->
+      <section class="py-20 max-w-7xl mx-auto px-6 lg:px-12" id="oacpens">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-7 order-2 lg:order-1 relative group">
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-secondary-container/20 to-primary-container/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-95 transition-opacity duration-300 -z-10"></div>
+            <div class="rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-xl overflow-hidden">
+              <div class="flex items-center justify-between px-4 py-3 bg-surface-container-low border-b border-surface-container-high">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ef4444] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#f59e0b] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#10b981] inline-block"></span>
+                </div>
+                <div class="px-3 py-1 rounded-md bg-surface-container-lowest text-xs text-on-surface-variant font-mono">
+                  oacpens.com
+                </div>
+                <span class="material-symbols-outlined text-outline text-[18px]">open_in_new</span>
+              </div>
+              <div class="aspect-[16/9] overflow-hidden bg-slate-900 relative">
+                <img id="img-oacpens" alt="Oacpens" class="w-full h-full object-fill" src="oacpens/1.png"
+                  onerror="this.style.display='none'; document.getElementById('placeholder-oacpens').style.display='flex';">
+                <div id="placeholder-oacpens" class="hidden w-full h-full bg-surface-container-low flex flex-col items-center justify-center p-8 text-center absolute inset-0">
+                  <div class="w-14 h-14 rounded-2xl bg-surface-container-high border border-surface-container-highest flex items-center justify-center text-primary mb-3">
+                    <span class="material-symbols-outlined text-3xl">add_photo_alternate</span>
+                  </div>
+                  <h4 class="font-bold text-on-surface text-base">Screenshot Preview Pending</h4>
+                  <p class="text-xs text-on-surface-variant max-w-xs mt-1">Place <code class="bg-surface-container-lowest px-1.5 py-0.5 rounded text-primary font-mono font-semibold">1.png</code> in the <code class="bg-surface-container-lowest px-1.5 py-0.5 rounded text-primary font-mono font-semibold">oacpens</code> folder to showcase it here.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-5 flex flex-col justify-center order-1 lg:order-2">
+            <div class="flex items-center gap-2.5 mb-3">
+              <span class="text-xs font-bold text-secondary tracking-wider uppercase">06 / Personalized Gifting</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-medium">Custom Craftsmanship</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-on-surface leading-snug mb-4">Oacpens</h2>
+            <p class="text-lg font-medium text-secondary mb-3 leading-snug">
+              Personalized Engraved Pens &amp; Bespoke Corporate Gifting.
+            </p>
+            <p class="text-on-surface-variant text-base leading-relaxed mb-6">
+              An artisan writing instruments brand specializing in customized and laser-engraved pens. Built for personal milestones, executive gifting, and corporate celebrations with custom name-preview options.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Shopify</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Custom Engraving UI</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Gifting Portal</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Tailwind CSS</span>
+            </div>
+            <div class="flex justify-start">
+              <a href="https://oacpens.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-secondary text-white text-xs font-semibold hover:opacity-90 transition-colors">
+                <span class="material-symbols-outlined text-[15px]">open_in_new</span>Visit Live Site
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07. Cotton Claws (cottonclaws.store) -->
+      <section class="py-20 max-w-7xl mx-auto px-6 lg:px-12" id="cottonclaws">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-5 flex flex-col justify-center">
+            <div class="flex items-center gap-2.5 mb-3">
+              <span class="text-xs font-bold text-primary tracking-wider uppercase">07 / Fashion &amp; Apparel</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed text-xs font-medium">Contemporary Clothing</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-on-surface leading-snug mb-4">Cotton Claws</h2>
+            <p class="text-lg font-medium text-primary-container mb-3 leading-snug">
+              Trendy Streetwear, Everyday Casuals &amp; Modern Apparel Drops.
+            </p>
+            <p class="text-on-surface-variant text-base leading-relaxed mb-6">
+              A vibrant clothing and apparel label offering premium cotton streetwear, relaxed fits, graphic tees, and modern everyday essentials crafted for comfort and standout casual aesthetics.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Headless Store</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">React</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">E-Commerce</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Tailwind CSS</span>
+            </div>
+            <div class="flex justify-start">
+              <a href="https://cottonclaws.store" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary-container text-white text-xs font-semibold hover:bg-primary transition-colors">
+                <span class="material-symbols-outlined text-[15px]">open_in_new</span>Visit Live Site
+              </a>
+            </div>
+          </div>
+          <div class="lg:col-span-7 relative group">
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-primary-container/20 to-secondary-container/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-95 transition-opacity duration-300 -z-10"></div>
+            <div class="rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-xl overflow-hidden">
+              <div class="flex items-center justify-between px-4 py-3 bg-surface-container-low border-b border-surface-container-high">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ef4444] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#f59e0b] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#10b981] inline-block"></span>
+                </div>
+                <div class="px-3 py-1 rounded-md bg-surface-container-lowest text-xs text-on-surface-variant font-mono">
+                  cottonclaws.store
+                </div>
+                <span class="material-symbols-outlined text-outline text-[18px]">open_in_new</span>
+              </div>
+              <div class="aspect-[16/9] overflow-hidden bg-neutral-100">
+                <img alt="Cotton Claws Store" class="w-full h-full object-fill" src="cottonclaws/1.png">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08. Scale On Media (scaleonmedia.in) -->
+      <section class="py-20 max-w-7xl mx-auto px-6 lg:px-12" id="scaleonmedia">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-7 order-2 lg:order-1 relative group">
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-secondary-container/20 to-primary-container/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-95 transition-opacity duration-300 -z-10"></div>
+            <div class="rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-xl overflow-hidden">
+              <div class="flex items-center justify-between px-4 py-3 bg-surface-container-low border-b border-surface-container-high">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ef4444] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#f59e0b] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#10b981] inline-block"></span>
+                </div>
+                <div class="px-3 py-1 rounded-md bg-surface-container-lowest text-xs text-on-surface-variant font-mono">
+                  scaleonmedia.in
+                </div>
+                <span class="material-symbols-outlined text-outline text-[18px]">open_in_new</span>
+              </div>
+              <div class="aspect-[16/9] overflow-hidden bg-slate-900 relative">
+                <img id="img-scaleonmedia" alt="Scale On Media" class="w-full h-full object-fill" src="scaleonmedia/1.png"
+                  onerror="this.style.display='none'; document.getElementById('placeholder-scaleonmedia').style.display='flex';">
+                <div id="placeholder-scaleonmedia" class="hidden w-full h-full bg-surface-container-low flex flex-col items-center justify-center p-8 text-center absolute inset-0">
+                  <div class="w-14 h-14 rounded-2xl bg-surface-container-high border border-surface-container-highest flex items-center justify-center text-primary mb-3">
+                    <span class="material-symbols-outlined text-3xl">add_photo_alternate</span>
+                  </div>
+                  <h4 class="font-bold text-on-surface text-base">Screenshot Preview Pending</h4>
+                  <p class="text-xs text-on-surface-variant max-w-xs mt-1">Place <code class="bg-surface-container-lowest px-1.5 py-0.5 rounded text-primary font-mono font-semibold">1.png</code> in the <code class="bg-surface-container-lowest px-1.5 py-0.5 rounded text-primary font-mono font-semibold">scaleonmedia</code> folder to showcase it here.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-5 flex flex-col justify-center order-1 lg:order-2">
+            <div class="flex items-center gap-2.5 mb-3">
+              <span class="text-xs font-bold text-secondary tracking-wider uppercase">08 / Social Media Marketing</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-medium">Creative Agency</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-on-surface leading-snug mb-4">Scale On Media</h2>
+            <p class="text-lg font-medium text-secondary mb-3 leading-snug">
+              Data-Driven Social Media Growth &amp; Content Performance Agency.
+            </p>
+            <p class="text-on-surface-variant text-base leading-relaxed mb-6">
+              A full-service social media agency focused on scaling brands through viral short-form video production, influencer campaigns, organic audience growth, and high-ROI paid social advertising.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Next.js</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Tailwind CSS</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Social Media Agency</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Growth Marketing</span>
+            </div>
+            <div class="flex justify-start">
+              <a href="https://scaleonmedia.in/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-secondary text-white text-xs font-semibold hover:opacity-90 transition-colors">
+                <span class="material-symbols-outlined text-[15px]">open_in_new</span>Visit Live Site
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 09. Pikova (pikovawater.com) -->
+      <section class="py-20 max-w-7xl mx-auto px-6 lg:px-12" id="pikova">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-5 flex flex-col justify-center">
+            <div class="flex items-center gap-2.5 mb-3">
+              <span class="text-xs font-bold text-primary tracking-wider uppercase">09 / Premium Beverages</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed text-xs font-medium">Packaged Drinking Water</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-on-surface leading-snug mb-4">Pikova</h2>
+            <p class="text-lg font-medium text-primary-container mb-3 leading-snug">
+              Ultra-Purified Mineral-Enriched Packaged Drinking Water.
+            </p>
+            <p class="text-on-surface-variant text-base leading-relaxed mb-6">
+              A premium packaged drinking water brand delivering pristine hydration with scientifically balanced essential minerals and eco-conscious bottling for high-end hospitality, events, and everyday wellness.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Modern Web App</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">React</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Brand Showcase</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Tailwind CSS</span>
+            </div>
+            <div class="flex justify-start">
+              <a href="https://pikovawater.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary-container text-white text-xs font-semibold hover:bg-primary transition-colors">
+                <span class="material-symbols-outlined text-[15px]">open_in_new</span>Visit Live Site
+              </a>
+            </div>
+          </div>
+          <div class="lg:col-span-7 relative group">
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-primary-container/20 to-secondary-container/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-95 transition-opacity duration-300 -z-10"></div>
+            <div class="rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-xl overflow-hidden">
+              <div class="flex items-center justify-between px-4 py-3 bg-surface-container-low border-b border-surface-container-high">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ef4444] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#f59e0b] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#10b981] inline-block"></span>
+                </div>
+                <div class="px-3 py-1 rounded-md bg-surface-container-lowest text-xs text-on-surface-variant font-mono">
+                  pikovawater.com
+                </div>
+                <span class="material-symbols-outlined text-outline text-[18px]">open_in_new</span>
+              </div>
+              <div class="aspect-[16/9] overflow-hidden bg-slate-900">
+                <img alt="Pikova Platform" class="w-full h-full object-fill" src="pikova/1.png">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. Phoenix Fiserv (phoenixfiserv.co.in) -->
+      <section class="py-20 max-w-7xl mx-auto px-6 lg:px-12" id="phoenix-financial">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-7 order-2 lg:order-1 relative group">
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-secondary-container/20 to-primary-container/20 rounded-3xl blur-xl opacity-60 group-hover:opacity-95 transition-opacity duration-300 -z-10"></div>
+            <div class="rounded-2xl bg-surface-container-lowest border border-surface-container-high shadow-xl overflow-hidden">
+              <div class="flex items-center justify-between px-4 py-3 bg-surface-container-low border-b border-surface-container-high">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#ef4444] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#f59e0b] inline-block"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#10b981] inline-block"></span>
+                </div>
+                <div class="px-3 py-1 rounded-md bg-surface-container-lowest text-xs text-on-surface-variant font-mono">
+                  phoenixfiserv.co.in
+                </div>
+                <span class="material-symbols-outlined text-outline text-[18px]">open_in_new</span>
+              </div>
+              <div class="aspect-[16/9] overflow-hidden bg-slate-900 relative">
+                <img id="img-phoenix" alt="Phoenix Fiserv" class="w-full h-full object-fill" src="phoenix-financial/1.png"
+                  onerror="this.style.display='none'; document.getElementById('placeholder-phoenix').style.display='flex';">
+                <div id="placeholder-phoenix" class="hidden w-full h-full bg-surface-container-low flex flex-col items-center justify-center p-8 text-center absolute inset-0">
+                  <div class="w-14 h-14 rounded-2xl bg-surface-container-high border border-surface-container-highest flex items-center justify-center text-primary mb-3">
+                    <span class="material-symbols-outlined text-3xl">add_photo_alternate</span>
+                  </div>
+                  <h4 class="font-bold text-on-surface text-base">Screenshot Preview Pending</h4>
+                  <p class="text-xs text-on-surface-variant max-w-xs mt-1">Place <code class="bg-surface-container-lowest px-1.5 py-0.5 rounded text-primary font-mono font-semibold">1.png</code> in the <code class="bg-surface-container-lowest px-1.5 py-0.5 rounded text-primary font-mono font-semibold">phoenix-financial</code> folder to showcase it here.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-5 flex flex-col justify-center order-1 lg:order-2">
+            <div class="flex items-center gap-2.5 mb-3">
+              <span class="text-xs font-bold text-secondary tracking-wider uppercase">10 / Financial Services</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-medium">Portfolio Management</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold text-on-surface leading-snug mb-4">Phoenix Fiserv</h2>
+            <p class="text-lg font-medium text-secondary mb-3 leading-snug">
+              Comprehensive Financial Advisory &amp; Personal Portfolio Management.
+            </p>
+            <p class="text-on-surface-variant text-base leading-relaxed mb-6">
+              A full-spectrum financial advisory firm offering customized investment planning, wealth advisory, and dedicated personal portfolio management features to track and grow long-term assets.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Fintech Portal</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Portfolio Management</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Next.js</span>
+              <span class="px-3 py-1 rounded-lg bg-surface-container-low text-on-surface text-xs font-medium border border-surface-container-high">Tailwind CSS</span>
+            </div>
+            <div class="flex justify-start">
+              <a href="https://www.phoenixfiserv.co.in/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-secondary text-white text-xs font-semibold hover:opacity-90 transition-colors">
+                <span class="material-symbols-outlined text-[15px]">open_in_new</span>Visit Live Site
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Archive & Extended Engagements (12 Additional Deployments) -->
+    <section class="py-24 max-w-7xl mx-auto px-6 lg:px-12" id="more-works">
+      <div class="mb-10">
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-primary-fixed mb-3">
+          <span class="w-2 h-2 rounded-full bg-primary-container"></span>
+          <span class="text-xs font-semibold text-primary tracking-wide uppercase">Archive &amp; Extended Engagements</span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-bold text-on-surface leading-tight">More Selected Works</h2>
+        <p class="text-on-surface-variant text-base mt-2 max-w-2xl">Additional client platforms, e-commerce storefronts, and web systems engineered across modern stacks.</p>
+      </div>
+
+      <!-- Showcase Grid (Matching Page Theme with Ambient Glow) -->
+      <div class="relative group">
+        <div class="absolute -inset-2 bg-gradient-to-r from-primary-container/15 via-secondary-container/15 to-primary-container/15 rounded-3xl blur-2xl opacity-60 group-hover:opacity-85 transition-opacity duration-300 -z-10"></div>
+        <div class="rounded-3xl bg-surface-container-lowest border border-surface-container-high p-8 md:p-12 shadow-xl">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+          
+          <!-- 01. TrunkCall AI -->
+          <a href="https://trunckcall.ai" target="_blank" rel="noopener noreferrer" class="group flex items-start justify-between p-3.5 -m-3.5 rounded-xl hover:bg-surface-container-low border border-transparent hover:border-surface-container-high transition-all duration-200">
+            <div>
+              <h3 class="text-base md:text-lg font-bold text-on-surface tracking-tight group-hover:text-primary transition-colors">
+                TrunkCall AI
+              </h3>
+              <div class="flex items-center gap-1.5 mt-2">
+                <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-secondary">
+                  <span class="w-2 h-2 rounded-full bg-secondary inline-block"></span>
+                  Voice AI Platform
+                </span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline text-[18px] group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">open_in_new</span>
+          </a>
+
+          <!-- 02. Skeft Studios -->
+          <a href="https://skeftstudios.com/" target="_blank" rel="noopener noreferrer" class="group flex items-start justify-between p-3.5 -m-3.5 rounded-xl hover:bg-surface-container-low border border-transparent hover:border-surface-container-high transition-all duration-200">
+            <div>
+              <h3 class="text-base md:text-lg font-bold text-on-surface tracking-tight group-hover:text-primary transition-colors">
+                Skeft Studios
+              </h3>
+              <div class="flex items-center gap-1.5 mt-2">
+                <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#146ef5]">
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.8 8c-.2-.1-.5 0-.7.2l-2.6 4.9-2-4.9c-.1-.3-.4-.5-.7-.5s-.6.2-.7.5l-2.8 7-1.9-7c-.1-.3-.4-.5-.7-.5H2.4c-.3 0-.6.2-.7.5-.1.3 0 .6.2.8l3.6 10.3c.1.3.4.5.7.5h3.6c.3 0 .6-.2.7-.5l2.6-6.1 2.6 6.1c.1.3.4.5.7.5h3.6c.3 0 .6-.2.7-.5l4.3-11.4c.1-.3 0-.6-.2-.8-.2-.3-.5-.4-.8-.3l-4.1 1.5z"/></svg>
+                  Webflow
+                </span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline text-[18px] group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">open_in_new</span>
+          </a>
+
+          <!-- 03. Margikka -->
+          <a href="https://margikka.com/" target="_blank" rel="noopener noreferrer" class="group flex items-start justify-between p-3.5 -m-3.5 rounded-xl hover:bg-surface-container-low border border-transparent hover:border-surface-container-high transition-all duration-200">
+            <div>
+              <h3 class="text-base md:text-lg font-bold text-on-surface tracking-tight group-hover:text-primary transition-colors">
+                Margikka
+              </h3>
+              <div class="flex items-center gap-1.5 mt-2">
+                <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#21759b]">
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12zm-8.83 12c0-1.895.59-3.652 1.597-5.105L9.69 19.34C6.012 18.23 3.17 15.46 3.17 12zm8.83 8.83c-1.468 0-2.835-.382-4.02-1.047l4.032-11.7 4.148 11.352c-1.272.88-2.735 1.395-4.16 1.395zm6.55-5.26l2.12-6.115c.67 1.31 1.05 2.784 1.05 4.345 0 3.32-1.788 6.22-4.445 7.828l1.275-6.058z"/></svg>
+                  WordPress
+                </span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline text-[18px] group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">open_in_new</span>
+          </a>
+
+          <!-- 04. Wikolo -->
+          <a href="https://wikolo.com/" target="_blank" rel="noopener noreferrer" class="group flex items-start justify-between p-3.5 -m-3.5 rounded-xl hover:bg-surface-container-low border border-transparent hover:border-surface-container-high transition-all duration-200">
+            <div>
+              <h3 class="text-base md:text-lg font-bold text-on-surface tracking-tight group-hover:text-primary transition-colors">
+                Wikolo
+              </h3>
+              <div class="flex items-center gap-1.5 mt-2">
+                <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#21759b]">
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12zm-8.83 12c0-1.895.59-3.652 1.597-5.105L9.69 19.34C6.012 18.23 3.17 15.46 3.17 12zm8.83 8.83c-1.468 0-2.835-.382-4.02-1.047l4.032-11.7 4.148 11.352c-1.272.88-2.735 1.395-4.16 1.395zm6.55-5.26l2.12-6.115c.67 1.31 1.05 2.784 1.05 4.345 0 3.32-1.788 6.22-4.445 7.828l1.275-6.058z"/></svg>
+                  WordPress
+                </span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline text-[18px] group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">open_in_new</span>
+          </a>
+
+          <!-- 05. Izelli Lifestyle -->
+          <a href="https://izellifestyle.com/" target="_blank" rel="noopener noreferrer" class="group flex items-start justify-between p-3.5 -m-3.5 rounded-xl hover:bg-surface-container-low border border-transparent hover:border-surface-container-high transition-all duration-200">
+            <div>
+              <h3 class="text-base md:text-lg font-bold text-on-surface tracking-tight group-hover:text-primary transition-colors">
+                Izelli Lifestyle
+              </h3>
+              <div class="flex items-center gap-1.5 mt-2">
+                <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#21759b]">
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12zm-8.83 12c0-1.895.59-3.652 1.597-5.105L9.69 19.34C6.012 18.23 3.17 15.46 3.17 12zm8.83 8.83c-1.468 0-2.835-.382-4.02-1.047l4.032-11.7 4.148 11.352c-1.272.88-2.735 1.395-4.16 1.395zm6.55-5.26l2.12-6.115c.67 1.31 1.05 2.784 1.05 4.345 0 3.32-1.788 6.22-4.445 7.828l1.275-6.058z"/></svg>
+                  WordPress
+                </span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline text-[18px] group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">open_in_new</span>
+          </a>
+
+          <!-- 06. Little Pros Fit -->
+          <a href="https://littlepros.fit/" target="_blank" rel="noopener noreferrer" class="group flex items-start justify-between p-3.5 -m-3.5 rounded-xl hover:bg-surface-container-low border border-transparent hover:border-surface-container-high transition-all duration-200">
+            <div>
+              <h3 class="text-base md:text-lg font-bold text-on-surface tracking-tight group-hover:text-primary transition-colors">
+                Little Pros Fit
+              </h3>
+              <div class="flex items-center gap-1.5 mt-2">
+                <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-on-surface">
+                  <span class="w-3.5 h-3.5 rounded-full bg-on-surface text-surface flex items-center justify-center font-bold text-[9px] font-sans">N</span>
+                  Next.js
+                </span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline text-[18px] group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">open_in_new</span>
+          </a>
+
+          <!-- 07. Admit Scholar -->
+          <a href="https://admitscholar.com/" target="_blank" rel="noopener noreferrer" class="group flex items-start justify-between p-3.5 -m-3.5 rounded-xl hover:bg-surface-container-low border border-transparent hover:border-surface-container-high transition-all duration-200">
+            <div>
+              <h3 class="text-base md:text-lg font-bold text-on-surface tracking-tight group-hover:text-primary transition-colors">
+                Admit Scholar
+              </h3>
+              <div class="flex items-center gap-1.5 mt-2">
+                <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#21759b]">
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12zm-8.83 12c0-1.895.59-3.652 1.597-5.105L9.69 19.34C6.012 18.23 3.17 15.46 3.17 12zm8.83 8.83c-1.468 0-2.835-.382-4.02-1.047l4.032-11.7 4.148 11.352c-1.272.88-2.735 1.395-4.16 1.395zm6.55-5.26l2.12-6.115c.67 1.31 1.05 2.784 1.05 4.345 0 3.32-1.788 6.22-4.445 7.828l1.275-6.058z"/></svg>
+                  WordPress
+                </span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline text-[18px] group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">open_in_new</span>
+          </a>
+
+          <!-- 08. Sushil Kumar -->
+          <a href="https://sushilkumar.space/" target="_blank" rel="noopener noreferrer" class="group flex items-start justify-between p-3.5 -m-3.5 rounded-xl hover:bg-surface-container-low border border-transparent hover:border-surface-container-high transition-all duration-200">
+            <div>
+              <h3 class="text-base md:text-lg font-bold text-on-surface tracking-tight group-hover:text-primary transition-colors">
+                Sushil Kumar
+              </h3>
+              <div class="flex items-center gap-1.5 mt-2">
+                <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-on-surface">
+                  <span class="w-3.5 h-3.5 rounded-full bg-on-surface text-surface flex items-center justify-center font-bold text-[9px] font-sans">N</span>
+                  Next.js
+                </span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline text-[18px] group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">open_in_new</span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Footer & Socials -->
+    <footer class="border-t border-surface-container-high bg-surface-container-lowest py-14 px-6 lg:px-12 mt-12">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+        
+        <!-- Brand Info -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+          <img src="logo.png" alt="Webglow Logo" class="h-10 w-auto object-contain">
+          <div>
+            <h4 class="font-bold text-on-surface text-base">Webglow Studios</h4>
+            <p class="text-xs text-on-surface-variant mt-0.5">High-performance digital flagships, web systems &amp; modern e-commerce.</p>
+          </div>
+        </div>
+
+        <!-- Social & Direct Channels -->
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          
+          <!-- Official Website -->
+          <a href="https://webglowstudios.in" target="_blank" rel="noopener noreferrer" 
+            class="group inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface text-xs font-semibold border border-surface-container-high hover:border-primary-fixed-dim transition-all duration-200 hover:-translate-y-0.5 shadow-sm">
+            <span class="material-symbols-outlined text-[18px] text-primary group-hover:scale-110 transition-transform">language</span>
+            <span>webglowstudios.in</span>
+            <span class="material-symbols-outlined text-[14px] text-outline group-hover:text-primary transition-colors">open_in_new</span>
+          </a>
+
+          <!-- Email Contact -->
+          <a href="mailto:studio.webglow@gmail.com" 
+            class="group inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface text-xs font-semibold border border-surface-container-high hover:border-primary-fixed-dim transition-all duration-200 hover:-translate-y-0.5 shadow-sm">
+            <span class="material-symbols-outlined text-[18px] text-primary group-hover:scale-110 transition-transform">mail</span>
+            <span>studio.webglow@gmail.com</span>
+          </a>
+
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/webglowstudios" target="_blank" rel="noopener noreferrer" 
+            class="group inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface text-xs font-semibold border border-surface-container-high hover:border-primary-fixed-dim transition-all duration-200 hover:-translate-y-0.5 shadow-sm">
+            <svg class="w-4 h-4 fill-[#E1306C] group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span>Instagram</span>
+            <span class="material-symbols-outlined text-[14px] text-outline group-hover:text-primary transition-colors">open_in_new</span>
+          </a>
+
+        </div>
+      </div>
+      
+      <!-- Bottom sub-footer line -->
+      <div class="max-w-7xl mx-auto mt-10 pt-6 border-t border-surface-container-high/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-on-surface-variant">
+        <p>&copy; 2026 Webglow Studios. All rights reserved.</p>
+        <p class="text-outline">Designed &amp; Engineered for modern brands.</p>
+      </div>
+    </footer>
+  </main>
+</body>
+
+</html>
